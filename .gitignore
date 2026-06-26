@@ -1,0 +1,12 @@
+# Never commit the raw 26GB archive into this repo.
+raw/
+assets/
+*.zip
+*.zip.part
+*.mp4
+*.mov
+*.m4v
+*.avi
+*.wmv
+*.pdf
+.DS_Store
