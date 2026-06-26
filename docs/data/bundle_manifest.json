@@ -1,0 +1,44 @@
+[
+  {
+    "release": "01",
+    "kind": "documents",
+    "url": "https://www.war.gov/medialink/ufo/bundle/Release_1.zip",
+    "filename": "release_01_documents.zip",
+    "expected_bytes": 1223976178
+  },
+  {
+    "release": "01",
+    "kind": "videos",
+    "url": "https://d34w7g4gy10iej.cloudfront.net/uapvideos.zip",
+    "filename": "release_01_videos.zip",
+    "expected_bytes": 1334665058
+  },
+  {
+    "release": "02",
+    "kind": "documents",
+    "url": "https://www.war.gov/medialink/ufo/052226/release_02/release_02_document_bundle.zip",
+    "filename": "release_02_documents.zip",
+    "expected_bytes": 69986448
+  },
+  {
+    "release": "02",
+    "kind": "videos",
+    "url": "https://d34w7g4gy10iej.cloudfront.net/uap052226.zip",
+    "filename": "release_02_videos.zip",
+    "expected_bytes": 5644377817
+  },
+  {
+    "release": "03",
+    "kind": "documents",
+    "url": "https://www.war.gov/medialink/ufo/061226/release_03/release_03_documents.zip",
+    "filename": "release_03_documents.zip",
+    "expected_bytes": 866619872
+  },
+  {
+    "release": "03",
+    "kind": "videos",
+    "url": "https://d34w7g4gy10iej.cloudfront.net/release_03/uap_videos_061226.zip",
+    "filename": "release_03_videos.zip",
+    "expected_bytes": 4961020992
+  }
+]
