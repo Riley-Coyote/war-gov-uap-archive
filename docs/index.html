@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#030407" />
+  <meta name="theme-color" content="#060608" />
   <title>PURSUE Archive — WAR.gov UAP Gallery</title>
   <link rel="preconnect" href="https://www.war.gov" />
   <link rel="preconnect" href="https://www.dvidshub.net" />
@@ -11,69 +11,87 @@
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
-  <div class="stars" aria-hidden="true"></div>
 
-  <header class="topbar">
-    <div class="brandline" aria-label="PURSUE Archive canvas header">
+  <header class="appHeader">
+    <div class="brandBlock">
       <a class="brand" href="./" aria-label="PURSUE Archive home">Pursue</a>
-      <span class="dot">•</span>
-      <span id="viewLabel">CANVAS VIEW</span>
-      <span class="dot">•</span>
-      <span><strong id="recordCount">—</strong> RECORDS</span>
+      <div>
+        <div class="eyebrow">WAR.gov UAP disclosure archive</div>
+        <h1>Formal gallery of released records</h1>
+      </div>
+    </div>
+
+    <div class="headerStats" aria-label="Archive totals">
+      <div><span id="recordCount">—</span><small>visible</small></div>
+      <div><span id="totalCount">—</span><small>records</small></div>
+      <div><span id="thumbCount">—</span><small>thumbnails</small></div>
     </div>
 
     <nav class="topnav" aria-label="Archive controls">
       <button id="aboutBtn" class="ghost">about</button>
-      <a class="ghost" href="https://www.war.gov/UFO/" target="_blank" rel="noreferrer">source</a>
+      <a class="ghost" href="https://www.war.gov/UFO/" target="_blank" rel="noreferrer">official source</a>
     </nav>
   </header>
 
-  <aside class="filterDock" aria-label="Filters">
-    <label class="searchBox">
-      <span>search archive</span>
-      <input id="searchInput" type="search" placeholder="orb, nasa, harare, saucer…" autocomplete="off" />
-    </label>
+  <main class="shell">
+    <aside class="filterPanel" aria-label="Filters">
+      <label class="searchBox">
+        <span>search archive</span>
+        <input id="searchInput" type="search" placeholder="orb, nasa, harare, saucer…" autocomplete="off" />
+      </label>
 
-    <div class="filterGroup" data-filter="release">
-      <span>release</span>
-      <button data-value="all" class="active">all</button>
-      <button data-value="5/8/26">01</button>
-      <button data-value="5/22/26">02</button>
-      <button data-value="6/12/26">03</button>
-    </div>
+      <div class="filterGroup" data-filter="release">
+        <span>release</span>
+        <button data-value="all" class="active">all</button>
+        <button data-value="5/8/26">01</button>
+        <button data-value="5/22/26">02</button>
+        <button data-value="6/12/26">03</button>
+      </div>
 
-    <div class="filterGroup" data-filter="type">
-      <span>signal</span>
-      <button data-value="all" class="active">all</button>
-      <button data-value="PDF">pdf</button>
-      <button data-value="VID">video</button>
-      <button data-value="AUD">audio</button>
-    </div>
-  </aside>
+      <div class="filterGroup" data-filter="type">
+        <span>format</span>
+        <button data-value="all" class="active">all</button>
+        <button data-value="PDF">pdf</button>
+        <button data-value="VID">video</button>
+        <button data-value="AUD">audio</button>
+      </div>
 
-  <main class="viewport" id="viewport" aria-label="Interactive archive canvas">
-    <section class="canvas" id="canvas" aria-live="polite"></section>
+      <label class="selectBox">
+        <span>sort</span>
+        <select id="sortSelect">
+          <option value="release">release order</option>
+          <option value="title">title</option>
+          <option value="agency">agency</option>
+          <option value="type">format</option>
+        </select>
+      </label>
+
+      <section class="notePanel">
+        <div class="noteKicker">local derivatives</div>
+        <p>Cards use generated first-page PDF previews and first-frame video posters from the downloaded archive. Originals remain linked to official source pages unless mirrored separately.</p>
+      </section>
+    </aside>
+
+    <section class="galleryRegion" aria-label="Archive gallery">
+      <div class="galleryToolbar">
+        <div>
+          <div class="sectionLabel">gallery view</div>
+          <p id="resultSummary">Loading WAR.gov release records…</p>
+        </div>
+        <div class="viewToggle" aria-label="Display density">
+          <button id="comfortableMode" class="active">comfortable</button>
+          <button id="compactMode">compact</button>
+        </div>
+      </div>
+
+      <section class="galleryGrid" id="gallery" aria-live="polite"></section>
+      <div class="emptyState" id="emptyState" hidden>
+        <div class="murmur" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <h2>No records match this filter</h2>
+        <p>Try a broader search term or reset release/format filters.</p>
+      </div>
+    </section>
   </main>
-
-  <section class="inspector" id="inspector" aria-label="Selected record preview">
-    <div class="inspectorInner">
-      <div class="inspectorKicker" id="inspectorKicker">NO RECORD SELECTED</div>
-      <h2 id="inspectorTitle">Select a signal tile</h2>
-      <p id="inspectorText">Hover or click any artifact in the canvas to inspect its release metadata and open source media.</p>
-    </div>
-  </section>
-
-  <div class="zoomDock" aria-label="Canvas zoom controls">
-    <button id="zoomOut" aria-label="Zoom out">−</button>
-    <output id="zoomReadout">32%</output>
-    <button id="zoomIn" aria-label="Zoom in">+</button>
-    <button id="fitAll">FIT ALL</button>
-  </div>
-
-  <div class="modeDock" aria-label="View shortcuts">
-    <button id="canvasMode" class="active">canvas</button>
-    <button id="listMode">list</button>
-  </div>
 
   <dialog id="recordDialog" class="recordDialog">
     <form method="dialog">
@@ -93,12 +111,15 @@
 
   <template id="cardTemplate">
     <button class="recordCard" type="button">
-      <span class="cardGlow"></span>
-      <span class="typePill"></span>
-      <span class="releasePill"></span>
-      <span class="visual"></span>
-      <span class="cardTitle"></span>
-      <span class="cardMeta"></span>
+      <span class="thumbWrap">
+        <img class="thumb" alt="" loading="lazy" decoding="async" />
+        <span class="thumbFallback" aria-hidden="true"></span>
+      </span>
+      <span class="cardBody">
+        <span class="cardMetaLine"><span class="releasePill"></span><span class="typePill"></span><span class="agencyPill"></span></span>
+        <span class="cardTitle"></span>
+        <span class="cardSub"></span>
+      </span>
     </button>
   </template>
 
